@@ -6,10 +6,27 @@ function main() {
   var count = 0;
   var removeCount = 0;
   var color = 0;
+  var maury = 0;
+  var searchTerms = [
+                    ["Husband", 0],
+                    ["Wife", 0],
+                    ]"Boyfriend", 0],
+                    ["Girlfriend", 0],
+                    ["Son", 0],
+                    ["Daughter", 0],
+                    ["Cousin", 0]
+                    ];
 
   s.register(function(tweets) {
+    //$("#results").replaceWith("<div id='results' class='span2'></div>");
+    //$("#results").replaceWith("<div id='results'>Maury: "+maury+"</div>");
+
     var txt = tweets.text;
     var img = tweets.profile_image_url;
+
+    searchTerms.each(function(){
+    });
+
     if(color%2===0) {
       var style = "tweet0";
     } else {
@@ -26,6 +43,9 @@ function main() {
     }
     count++;
     color++;
+    if (txt.match(/maury/i)) {
+      maury++;
+    }
   });
 
   s.start();
@@ -34,3 +54,4 @@ function main() {
 $(document).ready( function() {
   main();
 });
+
