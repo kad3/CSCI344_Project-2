@@ -14,13 +14,12 @@ function main() {
 
     s.register(function(tweets) {
 
-      $("#results").replaceWith("<div id='foo'>"+termcount+" tweets about "+term+" mention UNCA.</div>");
+      $("#results").replaceWith("<div id='results' class='span5 offset3'>"+termcount+" tweets about "+term+" mention UNCA.</div>");
 
       var txt = tweets.text;
       var img = tweets.profile_image_url;
 
       if(txt.match(/unca/i)){
-        termcount++;
         var style = "match";
       } else if (color%2===0) {
         var style = "tweet0";
@@ -43,6 +42,7 @@ function main() {
 
       count++;
       color++;
+
     });
   s.start();
   });
