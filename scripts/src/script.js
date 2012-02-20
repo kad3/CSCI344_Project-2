@@ -14,33 +14,29 @@ function main() {
 
     s.register(function(tweets) {
 
-      $("#results").replaceWith("<div id='results' class='span5 offset3'>"+termcount+" tweets about "+term+" mention UNCA.</div>");
 
       var txt = tweets.text;
       var img = tweets.profile_image_url;
 
       if(txt.match(/unca/i)){
         var style = "match";
+        termcount++;
       } else if (color%2===0) {
         var style = "tweet0";
       } else {
         var style = "tweet1";
       }
+      count++;
+      $("#results").replaceWith("<div id='results' class='span5 offset3'>"+termcount+" tweets out of "+count+" about "+term+" mention UNCA.</div>");
       var tweet = $("<p id='"+count+"' class='"+style+"'><img src='"+img+"'/>"+txt+"</p>");
       tweet.hide();
       $("#tweets").prepend(tweet);
       tweet.fadeIn().slideDown();
-      if(count>=10){
+      if(count>10){
         $("#"+removeCount).fadeOut();
         $("#"+removeCount).remove();
         removeCount++;
       }
-
-      if(txt.match(/unca/i)){
-        termcount++;
-      };
-
-      count++;
       color++;
 
     });
