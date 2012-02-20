@@ -1,6 +1,7 @@
 function main() {
 
   $("#searchbtn").click(function(){
+    $("#searchbtn").fadeOut();
     term = $("#term").val();
 
     var s = new Spotter("twitter.search",
