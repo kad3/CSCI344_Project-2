@@ -29,7 +29,7 @@ function main() {
       }
       count++;
       $("#results").replaceWith("<div id='results' class='span5 offset3'>"+termcount+" tweets out of "+count+" about "+term+" mention UNCA.</div>");
-      var tweet = $("<p id='"+count+"' class='"+style+"'><img src='"+img+"'/>"+txt+"</p>");
+      var tweet = $("<p id='"+count+"' class='tweet "+style+"'><img src='"+img+"'/>"+txt+"</p>");
       tweet.hide();
       $("#tweets").prepend(tweet);
       tweet.fadeIn().slideDown();
